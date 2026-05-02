@@ -17,13 +17,17 @@ const aiRouter = require('./routes/ai');
 app.use('/api', wishesRouter);
 app.use('/api', aiRouter);
 
-// Serve static assets in production
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/dist')));
-    app.get('/*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../client', 'dist', 'index.html'));
-    });
-}
+// Serve static assets
+const distPath = path.resolve(__dirname, '../client/dist');
+app.use(express.static(distPath));
+
+// Handle client-side routing fallback
+app.use((req, res, next) => {
+    if (req.path.startsWith('/api') || req.path.includes('.')) {
+        return next();
+    }
+    res.sendFile(path.join(distPath, 'index.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
