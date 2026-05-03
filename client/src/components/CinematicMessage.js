@@ -1,11 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './CinematicMessage.css';
 
-const lines = [
-  "Your hugs are my strength 💖",
-  "When you hold my hand, I feel like the whole world is with me 🌍",
-  "You are my everything ✨"
-];
+
 
 const CinematicMessage = () => {
   const containerRef = useRef(null);
@@ -18,6 +14,12 @@ const CinematicMessage = () => {
 
     // Clear any previous content
     container.innerHTML = '';
+
+    const lines = [
+      "Your hugs are my strength 💖",
+      "When you hold my hand, I feel like the whole world is with me 🌍",
+      "You are my everything ✨"
+    ];
 
     let wordIndex = 0;
     const words = [];
@@ -75,7 +77,7 @@ const CinematicMessage = () => {
     return () => {
       setIsRevealed(false);
     };
-  }, [lines]);
+  }, []);
 
   const handleContinue = () => {
     setIsVisible(false);
