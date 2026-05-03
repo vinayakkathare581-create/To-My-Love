@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './CinematicMessage.css';
 
+const lines = [
+  "Your hugs are my strength 💖",
+  "When you hold my hand, I feel like the whole world is with me 🌍",
+  "You are my everything ✨"
+];
+
 const CinematicMessage = () => {
   const containerRef = useRef(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-
-  const lines = [
-    "Your hugs are my strength 💖",
-    "When you hold my hand, I feel like the whole world is with me 🌍",
-    "You are my everything ✨"
-  ];
 
   useEffect(() => {
     const container = containerRef.current;
