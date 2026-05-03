@@ -1,0 +1,70 @@
+.cinematic-message-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  z-index: 10;
+}
+
+/* Add subtle floating motion to the whole block */
+.cinematic-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.cinematic-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+.cinematic-line {
+  font-family: var(--font-display, 'Inter', sans-serif);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.cinematic-word {
+  opacity: 0;
+  display: inline-block;
+  transform: scale(0.9);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0);
+  white-space: pre;
+}
+
+/* Word revealed state */
+.cinematic-word.word-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Word active/glow state */
+.cinematic-word.word-active {
+  color: #fff;
+  transform: scale(1.1);
+  text-shadow: 0 0 15px rgba(255, 126, 179, 0.8), 
+               0 0 30px rgba(101, 214, 255, 0.6);
+  background: -webkit-linear-gradient(45deg, #ff7eb3, #65d6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Remove the button styles since we won't need the continue button in this inline mode */
+.cinematic-button-wrapper {
+  display: none;
+}

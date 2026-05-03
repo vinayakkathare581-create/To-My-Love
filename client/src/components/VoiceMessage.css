@@ -1,0 +1,116 @@
+.voice-section {
+  text-align: center;
+}
+
+.voice-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.voice-recorder {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Visualizer */
+.voice-visualizer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 80px;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.visualizer-bar {
+  width: 6px;
+  height: 20%;
+  background: var(--gradient-rose);
+  border-radius: 3px;
+  transition: height 0.15s ease;
+}
+
+.voice-visualizer.recording .visualizer-bar {
+  animation: visualizerPulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes visualizerPulse {
+  0% { height: 15%; opacity: 0.5; }
+  100% { height: 90%; opacity: 1; }
+}
+
+/* Timer */
+.voice-timer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Inter', monospace;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+}
+
+.recording-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: recordBlink 1s ease-in-out infinite;
+}
+
+@keyframes recordBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Controls */
+.voice-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.voice-btn {
+  font-size: 1rem;
+  padding: 0.875rem 2rem;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+/* Playback */
+.voice-playback {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.playback-label {
+  font-family: var(--font-script);
+  font-size: 1.2rem;
+  color: var(--accent-rose-light);
+}
+
+.voice-audio {
+  width: 100%;
+  border-radius: var(--radius-md);
+  outline: none;
+}
+
+.voice-audio::-webkit-media-controls-panel {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.voice-delete {
+  font-size: 0.85rem;
+  padding: 0.5rem 1.25rem;
+}

@@ -1,0 +1,209 @@
+.wish-section {
+  text-align: center;
+}
+
+.wish-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+/* Form */
+.wish-form {
+  padding: 2rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.wish-form-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  background: var(--gradient-rose);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wish-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wish-input-group label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.wish-textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: var(--font-body);
+}
+
+/* Emoji Picker */
+.wish-emoji-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wish-emoji-section label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.emoji-selector {
+  position: relative;
+}
+
+.emoji-selected {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-selected:hover {
+  border-color: var(--accent-rose);
+  transform: scale(1.1);
+}
+
+.emoji-picker {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.25rem;
+  z-index: 20;
+}
+
+.emoji-option {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-option:hover,
+.emoji-option.active {
+  background: rgba(244, 63, 94, 0.2);
+  transform: scale(1.15);
+}
+
+.wish-submit {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.wish-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Wishes Display */
+.wish-cards-container {
+  min-height: 300px;
+}
+
+.wish-empty {
+  padding: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wish-empty-emoji {
+  font-size: 3rem;
+}
+
+.wish-empty p {
+  color: var(--text-muted);
+}
+
+.wish-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.wish-card {
+  padding: 1.25rem;
+  text-align: left;
+  cursor: default;
+}
+
+.wish-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.wish-card-emoji {
+  font-size: 1.5rem;
+}
+
+.wish-card-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent-rose-light);
+}
+
+.wish-card-message {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .wish-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .wish-form {
+    position: static;
+  }
+  
+  .wish-cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .wish-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

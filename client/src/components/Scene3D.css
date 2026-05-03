@@ -1,0 +1,132 @@
+.scene3d-section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  overflow: visible;
+}
+
+/* Section glow effects */
+.scene3d-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.scene3d-glow-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.1), transparent);
+  top: -100px;
+  right: -100px;
+}
+
+.scene3d-glow-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.08), transparent);
+  bottom: -100px;
+  left: -100px;
+}
+
+.scene3d-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.scene3d-badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: rgba(244, 63, 94, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  color: var(--accent-rose-light);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.scene3d-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: grab;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    0 0 60px rgba(244, 63, 94, 0.08),
+    0 0 120px rgba(168, 85, 247, 0.05),
+    inset 0 0 60px rgba(0, 0, 0, 0.3);
+}
+
+.scene3d-canvas-container:active {
+  cursor: grabbing;
+}
+
+/* Inner glow of canvas */
+.scene3d-canvas-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+  box-shadow: 
+    inset 0 0 100px rgba(244, 63, 94, 0.05),
+    inset 0 0 200px rgba(168, 85, 247, 0.03);
+}
+
+.scene3d-overlay {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  color: rgba(203, 213, 225, 0.7);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.scene3d-overlay-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-rose);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@media (max-width: 768px) {
+  .scene3d-canvas-container {
+    height: 400px;
+  }
+  
+  .scene3d-section {
+    padding: 4rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scene3d-canvas-container {
+    height: 320px;
+  }
+}

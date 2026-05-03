@@ -1,0 +1,136 @@
+.ai-section {
+  text-align: center;
+}
+
+.ai-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ai-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Tone Selector */
+.ai-tone-selector {
+  text-align: left;
+}
+
+.ai-tone-selector label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.ai-tones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ai-tone-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-body);
+}
+
+.ai-tone-btn:hover {
+  border-color: var(--tone-color);
+  color: var(--text-primary);
+}
+
+.ai-tone-btn.active {
+  border-color: var(--tone-color);
+  background: rgba(244, 63, 94, 0.1);
+  color: var(--text-primary);
+  box-shadow: 0 0 15px rgba(244, 63, 94, 0.15);
+}
+
+/* Generate Button */
+.ai-generate-btn {
+  width: 100%;
+}
+
+.ai-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Message Display */
+.ai-message-display {
+  padding: 2rem;
+  background: rgba(244, 63, 94, 0.05);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(244, 63, 94, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ai-message-icon {
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.ai-message-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+}
+
+/* TTS */
+.ai-tts-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.ai-tts-btn {
+  font-size: 0.9rem;
+}
+
+.ai-tts-player {
+  width: 100%;
+}
+
+.ai-audio {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 480px) {
+  .ai-card {
+    padding: 1.5rem;
+  }
+  
+  .ai-tones {
+    flex-direction: column;
+  }
+}

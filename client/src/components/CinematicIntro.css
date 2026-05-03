@@ -1,0 +1,132 @@
+.cinematic-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #0a0f1e 0%, #020617 70%, #000 100%);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* 3D Canvas Background */
+.intro-3d-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  pointer-events: none;
+}
+
+.intro-content button {
+  pointer-events: auto;
+}
+
+.intro-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.intro-pretext {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: rgba(203, 213, 225, 0.8);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-shadow: 0 0 20px rgba(244, 63, 94, 0.3);
+}
+
+.intro-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #f43f5e, #ec4899, #a855f7, #fbbf24, #f43f5e);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease infinite;
+  text-shadow: none;
+  filter: drop-shadow(0 0 40px rgba(244, 63, 94, 0.4));
+  letter-spacing: -1px;
+}
+
+.intro-subtitle {
+  font-family: var(--font-script);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  color: rgba(203, 213, 225, 0.7);
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+/* Tap to begin button */
+.tap-to-begin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: rgba(244, 63, 94, 0.12);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  border-radius: 9999px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(244, 63, 94, 0.15),
+              inset 0 0 30px rgba(244, 63, 94, 0.05);
+}
+
+.tap-icon {
+  font-size: 1.3rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+.tap-pulse {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid rgba(244, 63, 94, 0.5);
+  animation: tapPulse 2s ease-in-out infinite;
+}
+
+@keyframes tapPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0; }
+}
+
+/* Sparkles */
+.intro-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.intro-sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  animation: sparkle 4s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}

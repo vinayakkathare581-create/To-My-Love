@@ -1,0 +1,175 @@
+.memory-section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.memory-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px; /* Reduced gap */
+  padding: 50px 20px 30px 20px; /* Padding for scrollbar and float */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar for cinematic look */
+.memory-grid::-webkit-scrollbar {
+  height: 8px;
+}
+.memory-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+.memory-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 126, 179, 0.5);
+  border-radius: 10px;
+}
+
+/* Card Design */
+.memory-card {
+  position: relative;
+  flex: 0 0 300px; /* Slightly wider to fit Kannada text gracefully */
+  max-width: 300px;
+  scroll-snap-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 0;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Hover Animations */
+.memory-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+              0 0 30px rgba(236, 72, 153, 0.15), 
+              inset 0 0 20px rgba(56, 189, 248, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  z-index: 10;
+}
+
+/* 3D Dynamic Glare */
+.card-glare-container {
+  position: absolute;
+  inset: 0; /* Cover the whole card */
+  border-radius: 24px;
+  overflow: hidden;
+  pointer-events: none; /* Make sure it doesn't block mouse events */
+  z-index: 10;
+}
+
+.card-glare {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%);
+  opacity: 0; /* Hidden by default */
+  pointer-events: none;
+  mix-blend-mode: overlay; /* Creates a realistic light reflection */
+}
+
+/* Floating Image */
+.card-image-wrapper {
+  position: relative;
+  margin-top: -40px; /* Floats above the card */
+  transform: translateZ(30px); /* 3D pop effect */
+  width: 88%; 
+  height: auto; /* Dynamic height based on image */
+  border-radius: 16px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.card-image {
+  width: 100%;
+  height: auto; /* Ensure aspect ratio is maintained without cropping */
+  border-radius: 10px;
+  display: block;
+}
+
+.memory-card:hover .card-image-wrapper {
+  transform: translateY(-15px) translateZ(50px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Content */
+.card-content {
+  margin-top: 15px; /* Adjusted spacing for smaller card */
+  padding: 0 15px 20px 15px;
+  transform: translateZ(20px); /* 3D pop effect */
+  width: 100%;
+}
+
+.card-date {
+  font-size: 0.7rem; /* Smaller text */
+  color: #ec4899;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.card-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.1rem; /* Smaller text */
+  color: var(--text-primary);
+  margin: 0 0 5px 0;
+  font-weight: 700;
+}
+
+.card-caption {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.kannada-text {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin-top: 12px;
+  font-style: italic;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .memory-grid {
+      gap: 15px;
+      padding: 50px 10px 20px 10px;
+  }
+  .memory-card {
+      flex: 0 0 260px; /* Adjusted for mobile */
+      max-width: 260px;
+  }
+  .card-image-wrapper {
+      width: 90%;
+      margin-top: -30px;
+  }
+  .card-content {
+      margin-top: 15px;
+      padding: 0 15px 25px 15px;
+  }
+}
+
