@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, Sparkles, Stars } from '@react-three/drei';
-import * as THREE from 'three';
+import { MeshDistortMaterial, Sparkles, Stars } from '@react-three/drei';
 import './CinematicIntro.css';
 
 // 3D Floating Crystal Heart for intro

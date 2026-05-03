@@ -75,7 +75,7 @@ const CinematicMessage = () => {
     return () => {
       setIsRevealed(false);
     };
-  }, []);
+  }, [lines]);
 
   const handleContinue = () => {
     setIsVisible(false);
